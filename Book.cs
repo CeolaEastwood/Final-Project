@@ -44,7 +44,7 @@ class Book {
     
       public string Title { get; set; }
       public string ISBN { get; set; }
-      public string AuthorInfo { get; set; } //from author? chaining?
+      public string AuthorInfo { get; set; } 
       public virtual DateTime PublishedOn { get; set; }
       public string PublishedBy { get; set; }
     

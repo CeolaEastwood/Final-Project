@@ -33,3 +33,27 @@ o	Method does not return a value
 o	Method also displays a message (see example below)
 Removed from rental cart Harry Potter Book 2 for Patron TimSmith
 */
+
+using System;
+using System.Collections.Generic;
+
+  class Patron: Person {
+
+  //properties
+
+public List<Rental> RentalList = new List<Rental>();
+
+string LibraryId { get; set; } 
+public virtual DateTime EndDate { get; set; } 
+public virtual DateTime StartDate { get; set; } 
+bool IsAccountActive { get; set; } 
+float FineAmountDue { get; set; } 
+
+//constructor
+public author(string fname, string lname, string email) : base(fname, lname) {
+
+Email = email;
+Console.WriteLine("Patron");
+  }
+
+  }
