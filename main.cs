@@ -25,6 +25,15 @@ d.	Display books of Author 2
 
 e.	Remove book #1 from Author #1
 f.	Display books of Author 1.
+
+part 2
+
+In Program.cs, test the following:
+•	Create 5 patrons
+•	Add book 1 to Patron 1’s rentalcart by calling the AddToRentalCart method
+•	Remove book 3 from Patron 1’s rentalcart by calling the RemoveFromRentalCart method
+•	Display patron info
+
 */
 
 using System;
@@ -40,14 +49,13 @@ class MainClass {
   Book b1 = new Book ("Something Wicked This Way Comes", "ISBN-0380729407", "Ray Bradbury" );
   Book b3 = new Book ("The Martian Chronicles", "ISBN-9781451678192", "Ray Bradbury" );
   Book b5 = new Book ("The October Country: Stories", "ISBN-034532448X", "Ray Bradbury" );
-  Book b2 = new Book ("The Ghost Brigades", "ISBN-B001QS9TSE", "John Scalai", Convert.ToDateTime("04/10/2010"), "TorBooks" );
-  Book b4 = new Book ("Old Man's War", "ISBN-B000SEIK2S", "John Scalai", Convert.ToDateTime("04/01/2007"), "TorBooks" );
-  Book b6 = new Book ("The Last Colony", "ISBN-B000YJ85BI", "John Scalai", Convert.ToDateTime("04/17/2012"), "TorBooks" );
+  Book b2 = new Book ("The Ghost Brigades", "ISBN-B001QS9TSE", "John Scalzi", Convert.ToDateTime("04/10/2010"), "TorBooks" );
+  Book b4 = new Book ("Old Man's War", "ISBN-B000SEIK2S", "John Scalzi", Convert.ToDateTime("04/01/2007"), "TorBooks" );
+  Book b6 = new Book ("The Last Colony", "ISBN-B000YJ85BI", "John Scalzi", Convert.ToDateTime("04/17/2012"), "TorBooks" );
 
 
    //Author 1
-  author Ray = new author("Ray", "Bradbury");
-  //Ray.PermanentEmail="R_B@gmail.com";
+  author Ray = new author("Ray", "Bradbury", "R_B@gmail.com");
   Ray.DisplayInfo();
   Ray.AddBook(b1);
   Ray.AddBook(b3);
@@ -55,22 +63,16 @@ class MainClass {
   Ray.DisplayBooks();
   Ray.RemoveBook(b1); 
   Ray.DisplayBooks();
-  //Book a = new Book();
-  //a.Display();
-
+  
   
   //Author 2
-  author John = new author("John", "Scalzi" );
-  //John.PermanentEmail="J_S@gmail.com"
+  author John = new author("John", "Scalzi", "j_s@gmail.com");
   John.DisplayInfo();
   John.AddBook(b2);
   John.AddBook(b4);
   John.AddBook(b6);
   John.DisplayBooks();
 
-
-
-  Console.ReadKey();
  
   }  
 }

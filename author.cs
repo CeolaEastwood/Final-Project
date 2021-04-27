@@ -44,12 +44,12 @@ using System.Collections.Generic;
   class author: Person {
 
   //Properties
-  public List<BookList> BookLists = new List<BookList>();
+  public List<Book> BookList = new List<Book>();
 
   //Constructor
 
-  public author(string fname, string lname) : base(fname, lname) {
-
+  public author(string fname, string lname, string email) : base(fname, lname) {
+    Email = email;
     Console.WriteLine("Author");
   }
 
@@ -57,34 +57,33 @@ using System.Collections.Generic;
 
   public void DisplayInfo () {
 
-    Console.WriteLine("My name is " + FirstName + " " + LastName + " and you can contact me at ");
+    Console.WriteLine("My name is " + FirstName + " " + LastName + " and you can contact me at " + Email);
   }
 
   public void DisplayBooks() {
 
-    foreach (BookList n in BookLists)
+    foreach (Book n in BookList)
     { 
       //BookList  = n1();
       //var a = new Book();
-      //a.Display();
+      n.Display();
 
       //Cant get this section to referance
       //Book.Display();
       //Console.WriteLine(n.Display());
 
       //I can get this to display but can't get the referances to pass via Display
-      Console.WriteLine("{0}{1}{2}", n.novel.Title, n.novel.ISBN, n.novel.AuthorInfo );
+      //Console.WriteLine("{0}{1}{2}", n.novel.Title, n.novel.ISBN, n.novel.AuthorInfo );
     }
   }
 
   public void AddBook (Book b){
-    BookList n = new BookList (b);
-    BookLists.Add(n);
+    BookList.Add(b);
   }
 
   public void RemoveBook(Book b){
-    BookList n = BookLists.Find(o=>o.novel.ISBN == b.ISBN);
-    BookLists.Remove(n);
+    Book a = BookList.Find(o=>o.ISBN == b.ISBN);
+    BookList.Remove(a);
   }
 
 }

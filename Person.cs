@@ -7,18 +7,14 @@
         public string LastName { get; set; }
         public virtual DateTime DateOfBirth { get; set; }
         public string SocialSecurity { get; set; }
-        //public string Email { get; set; }
-        //public string email { get; set; }
-        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public virtual string PhoneNumber { get; set; }
         
         //public Address PermanentAddress;
-
-        //public Email PermanentEmail;
 
         public Person() 
         {
           //PermanentAddress = new Address();
-          //PermanentEmail = new email();
           Console.WriteLine("Person constructor");
         }
 
@@ -26,17 +22,14 @@
         {
           FirstName = fname;
           LastName = lname;
-          //Email = e_mail;
           //PermanentAddress = new Address();
-          //PermanentEmail = new email();
           Console.WriteLine("Person constructor");
         }
 
         public virtual void Intro()
         {
-            Console.WriteLine("Hello my name is *** "+ FirstName +" "+ LastName +".");
-            //Console.WriteLine("Hello my name is *** "+ FirstName +" "+ LastName + " " + Email +".");
-            //PermanentEmail.Display();
+            Console.WriteLine("Hello my name is *** "+ FirstName +" "+ LastName);
+            //PermanentAddress.Display();
         }
 
         public void IsBirthday()
