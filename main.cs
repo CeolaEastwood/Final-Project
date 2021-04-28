@@ -1,31 +1,4 @@
 /*
-TO DO
-1. Fix DateTime?
-
-In main.cs, test the following:
-
-DONE maybe
-•	Create 2 authors (without creating books inside Authors)
-a.	Call DisplayInfo for Author 1
-b.	Call DisplayInfo for Author 2
-
-NOPE
-•	Create 6 books
-a.	Use first constructor for the first 3 and second constructor for the other 3 books
-b.	Books 1,3,5 should be set to have AuthorInfo as  Author 1
-c.	Books 2,4,6 should be set to have AuthorInfo as  Author 2
-
-SET UP IS mostly DONE
-•	Connecting Books to Author
-a.	Add books 1, 3, 5 to Author 1.
-b.	Display books of Author 1
-
-c.	Add books 2,4,6 to Author 2.
-d.	Display books of Author 2
-
-e.	Remove book #1 from Author #1
-f.	Display books of Author 1.
-
 part 2
 
 In Program.cs, test the following:
@@ -53,8 +26,16 @@ class MainClass {
   Book b4 = new Book ("Old Man's War", "ISBN-B000SEIK2S", "John Scalzi", Convert.ToDateTime("04/01/2007"), "TorBooks" );
   Book b6 = new Book ("The Last Colony", "ISBN-B000YJ85BI", "John Scalzi", Convert.ToDateTime("04/17/2012"), "TorBooks" );
 
+  /*
+  Rental r1 = new Rental ("The Ghost Brigades", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  Rental r2 = new Rental ("Old Man's War", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  Rental r3 = new Rental ("The Martian Chronicles", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  Rental r4 = new Rental ("Something Wicked This Way Comes", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  Rental r5 = new Rental ("The October Country: Stories", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  Rental r6 = new Rental ("The Last Colony", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  */
 
-   //Author 1
+  /* //Author 1
   author Ray = new author("Ray", "Bradbury", "R_B@gmail.com");
   Ray.DisplayInfo();
   Ray.AddBook(b1);
@@ -72,7 +53,22 @@ class MainClass {
   John.AddBook(b4);
   John.AddBook(b6);
   John.DisplayBooks();
-
  
+*/
+  Patron p1 = new Patron ("Kurt", "Miller", "QWE123");
+  Patron p2 = new Patron ("Jane", "Kintz", "ASD456");
+  Patron p3 = new Patron ("Chris", " Fritz", "ZXC789");
+  Patron p4 = new Patron ("Samuel", "Jackman", "TYU963");
+  Patron p5 = new Patron ("Shirley", "Slatts", "MLK654");
+
+  
+  p1.AddToRentalCart(b1, Convert.ToDateTime("04/07/2022"));
+
+  p1.RemoveFromRentalCart(b2);
+  //p1.RemoveFromRentalCart(b3);
+  //p1.RemoveFromRentalCart(b4);
+ 
+  p1.PatronDisplay();
+
   }  
 }

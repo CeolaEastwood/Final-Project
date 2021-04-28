@@ -16,17 +16,14 @@ o	Inside the constructor
 	Set IsAccountActive to true
 o	(Hint) Any time you inherit, call the base class constructor
 •	Methods
-o	Display
-	Method does not take any parameter
-	Method does not return any value
-	Displays a message (See example below)
-Patron Id=1111 Name=Tim Smith
+
 •	AddToRentalCart
 o	Method takes a book object and due date as input
 o	Method does not return a value
 o	Creates a new Rental object for the Book (input) and adds to the RentalCart list.
 o	Method also displays a message (see example below)
 Added to rental cart Harry Potter Book 1 for Patron TimSmith
+
 •	RemoveFromRentalCart
 o	Method takes a book object as input
 o	Method does not return a value
@@ -50,10 +47,96 @@ bool IsAccountActive { get; set; }
 float FineAmountDue { get; set; } 
 
 //constructor
-public author(string fname, string lname, string email) : base(fname, lname) {
+public Patron(string fname, string lname, string libraryid) : base(fname, lname) {
 
-Email = email;
+LibraryId =libraryid;
+//FineAmountDue = 0;
+//IsAccountActive = true;
+//StartDate = DateTime.Today;
+
 Console.WriteLine("Patron");
   }
 
+// Method
+public void PatronDisplay(){
+
+  Console.WriteLine("Patron ID = "+ LibraryId);
+  Console.WriteLine("Patron Name = "+ FirstName +" "+ LastName);
+
+}
+
+public void AddToRentalCart(Book RentalBook, DateTime DateDue){
+  Rental z = new Rental(RentalBook, DateDue);
+  RentalList.Add(z);
+
+    Console.WriteLine("Added to rental cart: "+ RentalBook.Title + " for Patron "+ FirstName + " " + LastName);
   }
+
+public void RemoveFromRentalCart(Book RentalBook){
+  int index = 0;
+
+  while (index < RentalList.Count) {
+
+      if (RentalList[index].RentalBook.ISBN == RentalBook.ISBN) 
+        index += 1;
+      }
+      Console.WriteLine("Removed from rental cart: "+ RentalBook.Title + " for Patron "+ FirstName + " "+ LastName);
+    }
+  }
+
+  /*  
+  public void RemoveFromRentalCart(Book RentalBook){
+
+   for(int i = 0; i<RentalList.Count; i++)
+
+    if (RentalList[i].RentalBook.ISBN == RentalBook.ISBN)
+      {
+        RentalList.RemoveAt(i);
+      }
+
+    Console.WriteLine("Removed from rental cart: "+ RentalBook.Title + " for Patron "+ FirstName + " "+ LastName);
+    }
+  }*/
+
+
+/* QUESTION SECTION
+
+1. Why does the rental class not need the get; set;?
+
+2. Why does this work for the BookList but not RentalList?
+
+  public void RemoveBook(Book RentalBook){
+  Book rb = RentalList.Find(o=>o.ISBN == rb.ISBN);
+  RentalList.Remove(rb);
+  }
+
+3.  I never got a for each loop to work why does the while loop freeze when you try remove a book never put in a cart but the For loop will still print the WriteLine?
+
+/*private void ProcessAndRemove(IList<Item> list)
+{
+    foreach (var item in list.ToList())
+    {
+        if (item.DeterminingFactor > 10)
+        {
+            list.Remove(item);
+        }
+    }
+
+    for (int i = 0; i < myIntCollection.Count; i++) {
+    if (myIntCollection[i] == 42)
+    {
+        myIntCollection.Remove(i);
+        i--;
+    }
+}
+
+var index = 0;
+while (index < myList.Count) {
+  if (someCondition(myList[index])) {
+    myList.RemoveAt(index);
+  } else {
+    index++;
+  }
+}
+    
+    */
