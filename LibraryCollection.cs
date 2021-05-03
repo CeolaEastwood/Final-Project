@@ -59,22 +59,10 @@ public void ProcessRental (Patron p){
   }
 }
 
-/*
-public void ProcessReturns (Patron p, Book b ){
-  Rental r = p.RentalList.Find(o => o.Book == b);
-
-  if (r.DateDue < DateTime.Today) {
-    p.FineAmountDue = p.FineAmountDue+10;
-    Console.WriteLine("Rental overdue: Added Fine = $1");
-    }
-    p.RemoveFromRentalCart(b);
-    //this.AddToCollection(b);
-    Console.WriteLine("Checkin complete - Added to Library Collections: "+ b.Book.Title);
-  }*/
 
 public void ProcessReturns (Patron p, Book b ){
   Book f = BookList.Find(o=>o.ISBN == b.ISBN);
-  //Rental r = p.RentalList.Find(o => o.Book == b);
+  //Rental r = p.RentalList.Find(o => o.Book == b);?? Duedate
   BookList.Add(b);
   p.RemoveFromRentalCart(b);
   //L1.AddToCollection(b);

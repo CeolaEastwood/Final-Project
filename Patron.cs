@@ -50,7 +50,11 @@ float FineAmountDue { get; set; }
 public Patron(string fname, string lname, string libraryid) : base(fname, lname) {
 
 LibraryId =libraryid;
+<<<<<<< HEAD
 FineAmountDue = 0;
+=======
+//FineAmountDue = 0;
+>>>>>>> origin/Final-Project--2
 //IsAccountActive = true;
 //StartDate = DateTime.Today;
 
@@ -74,14 +78,80 @@ public void AddToRentalCart(Book RentalBook, DateTime DateDue){
 
 public void RemoveFromRentalCart(Book RentalBook){
   int index = 0;
+<<<<<<< HEAD
   while (index < RentalList.Count) {
 
       if (RentalList[index].RentalBook.ISBN == RentalBook.ISBN) 
         RentalList.RemoveAt(index);
+=======
+
+  while (index < RentalList.Count) {
+
+      if (RentalList[index].RentalBook.ISBN == RentalBook.ISBN) 
+>>>>>>> origin/Final-Project--2
         index += 1;
       }
       Console.WriteLine("Removed from rental cart: "+ RentalBook.Title + " for Patron "+ FirstName + " "+ LastName);
     }
   }
 
+<<<<<<< HEAD
  
+=======
+  /*  
+  public void RemoveFromRentalCart(Book RentalBook){
+
+   for(int i = 0; i<RentalList.Count; i++)
+
+    if (RentalList[i].RentalBook.ISBN == RentalBook.ISBN)
+      {
+        RentalList.RemoveAt(i);
+      }
+
+    Console.WriteLine("Removed from rental cart: "+ RentalBook.Title + " for Patron "+ FirstName + " "+ LastName);
+    }
+  }*/
+
+
+/* QUESTION SECTION
+
+1. Why does the rental class not need the get; set;?
+
+2. Why does this work for the BookList but not RentalList?
+
+  public void RemoveBook(Book RentalBook){
+  Book rb = RentalList.Find(o=>o.ISBN == rb.ISBN);
+  RentalList.Remove(rb);
+  }
+
+3.  I never got a for each loop to work why does the while loop freeze when you try remove a book never put in a cart but the For loop will still print the WriteLine?
+
+/*private void ProcessAndRemove(IList<Item> list)
+{
+    foreach (var item in list.ToList())
+    {
+        if (item.DeterminingFactor > 10)
+        {
+            list.Remove(item);
+        }
+    }
+
+    for (int i = 0; i < myIntCollection.Count; i++) {
+    if (myIntCollection[i] == 42)
+    {
+        myIntCollection.Remove(i);
+        i--;
+    }
+}
+
+var index = 0;
+while (index < myList.Count) {
+  if (someCondition(myList[index])) {
+    myList.RemoveAt(index);
+  } else {
+    index++;
+  }
+}
+    
+    */
+>>>>>>> origin/Final-Project--2

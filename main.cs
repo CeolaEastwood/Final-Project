@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+=======
+/*
+part 2
+
+In Program.cs, test the following:
+•	Create 5 patrons
+•	Add book 1 to Patron 1’s rentalcart by calling the AddToRentalCart method
+•	Remove book 3 from Patron 1’s rentalcart by calling the RemoveFromRentalCart method
+•	Display patron info
+
+*/
+>>>>>>> origin/Final-Project--2
 
 using System;
 using System.Collections.Generic;
@@ -16,7 +29,20 @@ class MainClass {
   Book b4 = new Book ("Old Man's War", "ISBN-B000SEIK2S", "John Scalzi", Convert.ToDateTime("04/01/2007"), "TorBooks" );
   Book b6 = new Book ("The Last Colony", "ISBN-B000YJ85BI", "John Scalzi", Convert.ToDateTime("04/17/2012"), "TorBooks" );
 
+<<<<<<< HEAD
   //Author 1
+=======
+  /*
+  Rental r1 = new Rental ("The Ghost Brigades", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  Rental r2 = new Rental ("Old Man's War", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  Rental r3 = new Rental ("The Martian Chronicles", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  Rental r4 = new Rental ("Something Wicked This Way Comes", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  Rental r5 = new Rental ("The October Country: Stories", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  Rental r6 = new Rental ("The Last Colony", Convert.ToDateTime("04/27/2021"), Convert.ToDateTime("04/05/2022") );
+  */
+
+  /* //Author 1
+>>>>>>> origin/Final-Project--2
   author Ray = new author("Ray", "Bradbury", "R_B@gmail.com");
   Ray.DisplayInfo();
   Ray.AddBook(b1);
@@ -34,7 +60,15 @@ class MainClass {
   John.AddBook(b4);
   John.AddBook(b6);
   John.DisplayBooks();
+ 
+*/
+  Patron p1 = new Patron ("Kurt", "Miller", "QWE123");
+  Patron p2 = new Patron ("Jane", "Kintz", "ASD456");
+  Patron p3 = new Patron ("Chris", " Fritz", "ZXC789");
+  Patron p4 = new Patron ("Samuel", "Jackman", "TYU963");
+  Patron p5 = new Patron ("Shirley", "Slatts", "MLK654");
 
+<<<<<<< HEAD
   Patron p1 = new Patron ("Kurt", "Miller", "QWE123");
   Patron p2 = new Patron ("Jane", "Kintz", "ASD456");
   Patron p3 = new Patron ("Chris", " Fritz", "ZXC789");
@@ -78,4 +112,16 @@ class MainClass {
    
 
   }
+=======
+  
+  p1.AddToRentalCart(b1, Convert.ToDateTime("04/07/2022"));
+
+  p1.RemoveFromRentalCart(b2);
+  //p1.RemoveFromRentalCart(b3);
+  //p1.RemoveFromRentalCart(b4);
+ 
+  p1.PatronDisplay();
+
+  }  
+>>>>>>> origin/Final-Project--2
 }
