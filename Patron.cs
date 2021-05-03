@@ -16,17 +16,14 @@ o	Inside the constructor
 	Set IsAccountActive to true
 o	(Hint) Any time you inherit, call the base class constructor
 •	Methods
-o	Display
-	Method does not take any parameter
-	Method does not return any value
-	Displays a message (See example below)
-Patron Id=1111 Name=Tim Smith
+
 •	AddToRentalCart
 o	Method takes a book object and due date as input
 o	Method does not return a value
 o	Creates a new Rental object for the Book (input) and adds to the RentalCart list.
 o	Method also displays a message (see example below)
 Added to rental cart Harry Potter Book 1 for Patron TimSmith
+
 •	RemoveFromRentalCart
 o	Method takes a book object as input
 o	Method does not return a value
@@ -43,17 +40,48 @@ using System.Collections.Generic;
 
 public List<Rental> RentalList = new List<Rental>();
 
-string LibraryId { get; set; } 
+public string LibraryId { get; set; } 
 public virtual DateTime EndDate { get; set; } 
 public virtual DateTime StartDate { get; set; } 
 bool IsAccountActive { get; set; } 
 float FineAmountDue { get; set; } 
 
 //constructor
-public author(string fname, string lname, string email) : base(fname, lname) {
+public Patron(string fname, string lname, string libraryid) : base(fname, lname) {
 
-Email = email;
+LibraryId =libraryid;
+FineAmountDue = 0;
+//IsAccountActive = true;
+//StartDate = DateTime.Today;
+
 Console.WriteLine("Patron");
   }
 
+// Method
+public void PatronDisplay(){
+
+  Console.WriteLine("Patron ID = "+ LibraryId);
+  Console.WriteLine("Patron Name = "+ FirstName +" "+ LastName);
+
+}
+
+public void AddToRentalCart(Book RentalBook, DateTime DateDue){
+  Rental z = new Rental(RentalBook, DateDue);
+  RentalList.Add(z);
+
+    Console.WriteLine("Added to rental cart: "+ RentalBook.Title + " for Patron "+ FirstName + " " + LastName);
   }
+
+public void RemoveFromRentalCart(Book RentalBook){
+  int index = 0;
+  while (index < RentalList.Count) {
+
+      if (RentalList[index].RentalBook.ISBN == RentalBook.ISBN) 
+        RentalList.RemoveAt(index);
+        index += 1;
+      }
+      Console.WriteLine("Removed from rental cart: "+ RentalBook.Title + " for Patron "+ FirstName + " "+ LastName);
+    }
+  }
+
+ 

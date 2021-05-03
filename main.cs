@@ -1,40 +1,3 @@
-/*
-TO DO
-1. Fix DateTime?
-
-In main.cs, test the following:
-
-DONE maybe
-•	Create 2 authors (without creating books inside Authors)
-a.	Call DisplayInfo for Author 1
-b.	Call DisplayInfo for Author 2
-
-NOPE
-•	Create 6 books
-a.	Use first constructor for the first 3 and second constructor for the other 3 books
-b.	Books 1,3,5 should be set to have AuthorInfo as  Author 1
-c.	Books 2,4,6 should be set to have AuthorInfo as  Author 2
-
-SET UP IS mostly DONE
-•	Connecting Books to Author
-a.	Add books 1, 3, 5 to Author 1.
-b.	Display books of Author 1
-
-c.	Add books 2,4,6 to Author 2.
-d.	Display books of Author 2
-
-e.	Remove book #1 from Author #1
-f.	Display books of Author 1.
-
-part 2
-
-In Program.cs, test the following:
-•	Create 5 patrons
-•	Add book 1 to Patron 1’s rentalcart by calling the AddToRentalCart method
-•	Remove book 3 from Patron 1’s rentalcart by calling the RemoveFromRentalCart method
-•	Display patron info
-
-*/
 
 using System;
 using System.Collections.Generic;
@@ -53,8 +16,7 @@ class MainClass {
   Book b4 = new Book ("Old Man's War", "ISBN-B000SEIK2S", "John Scalzi", Convert.ToDateTime("04/01/2007"), "TorBooks" );
   Book b6 = new Book ("The Last Colony", "ISBN-B000YJ85BI", "John Scalzi", Convert.ToDateTime("04/17/2012"), "TorBooks" );
 
-
-   //Author 1
+  //Author 1
   author Ray = new author("Ray", "Bradbury", "R_B@gmail.com");
   Ray.DisplayInfo();
   Ray.AddBook(b1);
@@ -73,6 +35,47 @@ class MainClass {
   John.AddBook(b6);
   John.DisplayBooks();
 
- 
-  }  
+  Patron p1 = new Patron ("Kurt", "Miller", "QWE123");
+  Patron p2 = new Patron ("Jane", "Kintz", "ASD456");
+  Patron p3 = new Patron ("Chris", " Fritz", "ZXC789");
+  Patron p4 = new Patron ("Samuel", "Jackman", "TYU963");
+  Patron p5 = new Patron ("Shirley", "Slatts", "MLK654");
+
+  LibraryCollection L1 = new LibraryCollection();
+
+   L1.AddPatron(p1);
+   L1.AddPatron(p2);
+   L1.AddPatron(p3);
+   L1.AddPatron(p4);
+   L1.AddPatron(p5);
+   L1.RemovePatron(p5);
+   L1.DisplayPatronInfo();
+
+   L1.AddToCollection(b1);
+   L1.AddToCollection(b2);
+   L1.AddToCollection(b3);
+   L1.AddToCollection(b4);
+   L1.AddToCollection(b5);
+   L1.AddToCollection(b6);
+   L1.RemoveFromCollection(b6);
+
+   L1.DisplayCollection();
+
+   p1.AddToRentalCart(b1, Convert.ToDateTime("04/07/2022"));
+   p1.AddToRentalCart(b2, Convert.ToDateTime("04/07/2022"));
+   p2.AddToRentalCart(b3, Convert.ToDateTime("04/07/2022"));
+   p2.AddToRentalCart(b4, Convert.ToDateTime("04/07/2022"));
+   p2.RemoveFromRentalCart(b4);
+
+   L1.ProcessRental(p1);
+   L1.ProcessRental(p2);
+   L1.DisplayCollection();
+
+   L1.ProcessReturns(p1, b1);
+   L1.ProcessReturns(p2, b3);
+   L1.DisplayCollection();
+
+   
+
+  }
 }
